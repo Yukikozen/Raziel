@@ -450,5 +450,5 @@ Email <isaacchoojh@gmail.com> or join our [Discord](<https://discord.gg/CCsnqwzc
   ![Your Repository's Stats](<https://github-readme-stats.vercel.app/api?username=Yggralith0&show_icons=true>)
 - [Qiao Yan](<https://github.com/Yukikozen>)
 
-  ![Your Repository's Stats](<https://github-readme-stats.vercel.app/api?username=ushiococo&show_icons=true>)
+  ![Your Repository's Stats](<https://github-readme-stats.vercel.app/api?username=Yukikozen&show_icons=true>)
 
