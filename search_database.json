@@ -1,0 +1,246 @@
+{
+  "Check if a machine is alive": {
+    "value": "ping <IP_ADDR>",
+    "category": "command",
+    "<IP_ADDR>": {
+      "message": "Enter the IP address you want to check:\n",
+      "asking_for_path": false
+    }
+  },
+  "Create a TAR file": {
+    "value": "tar -cvf <TAR_FILE_NAME>.tar <FILES_OR_DIRECTORY>",
+    "category": "command",
+    "<TAR_FILE_NAME>": {
+      "message": "What would you like to call your TAR file?\n",
+      "asking_for_path": false
+    },
+    "<FILES_OR_DIRECTORY>": {
+      "message": "Enter the file(s) or the directory you want to compress.\nIf there are multiple files, please specify them in the following format\n(double quotation marks included): \"FILE 1\" \"FILE 2\" ... \"FILE N\".\nFor paths, use either / or \\\\:\n",
+      "asking_for_path": false
+    }
+  },
+  "Get the MD5 hash of a file": {
+    "Windows": {
+      "value": "certutil -hashfile <FILE_NAME> md5"
+    },
+    "Linux": {
+      "value": "md5sum <FILE_NAME>"
+    },
+    "Darwin": {
+      "value": "md5sum <FILE_NAME>"
+    },
+    "category": "command",
+    "<FILE_NAME>": {
+      "message": "Enter the file you want to get the MD5 hash of:\n",
+      "asking_for_path": true
+    }
+  },
+  "Get the SHA256 hash of a file": {
+    "Windows": {
+      "value": "certutil -hashfile <FILE_NAME> sha256"
+    },
+    "Linux": {
+      "value": "sha256sum <FILE_NAME>"
+    },
+    "Darwin": {
+      "value": "sha256sum <FILE_NAME>"
+    },
+    "category": "command",
+    "<FILE_NAME>": {
+      "message": "Enter the file you want to get the SHA256 hash of:\n",
+      "asking_for_path": true
+    }
+  },
+  "How can I get a user's SID? (Windows)": {
+    "value": "To get a user's SID on Windows:\n+------------------------------------------------+\n|wmic useraccount where name=\"{USERNAME}\" get sid|\n+------------------------------------------------+\nUSERNAME:\nThe user whose SID you want to get",
+    "category": "info"
+  },
+  "How can I get a user's UID? (Linux & Mac)": {
+    "value": "To get a user's UID in Linux/Mac:\n+------------------+\n|id [-u] [USERNAME]|\n+------------------+\n-u:\nOnly print the effective user ID\nUSERNAME:\nThe user whose UID you want to get\n\n====\nNOTE\n====\nRunning just \"id\" or \"id -u\" will give you the current user's UID",
+    "category": "info"
+  },
+  "How do I check what port a process is using? (Linux & Mac)": {
+    "value": "To find out what port a process is using on Linux/Mac:\n+-----------------------------------------+\n|ss -ap | grep {PROCESS_NAME | PROCESS_ID}|\n+-----------------------------------------+\n-a:\nShow all sockets\n-p:\nShow the process using that socket\nPROCESS_NAME:\nThe name of the program whose port you want to know\nPROCESS_ID:\nThe PID of the program whose port you want to know",
+    "category": "info"
+  },
+  "How do I check what port a process is using? (Windows)": {
+    "value": "To find out what port a process is using on Windows:\n+-----------------------------------+\n|netstat -aon | findstr {PROCESS_ID}|\n+-----------------------------------+\n-a:\nShow all connections & listening ports\n-o:\nShow the process using that port\n-n:\nDisplay the addresses & port numbers in numerical form\nPROCESS_ID:\nThe PID of the program whose port you want to know",
+    "category": "info"
+  },
+  "How do I list all files opened by a directory? (Linux & Mac)": {
+    "value": "To list all files opened by a directory in Linux/Mac:\n+---------------------------+\n|lsof +D {PATH_TO_DIRECTORY}|\n+---------------------------+\n+D:\nTell lsof you want to look at files opened by a directory\nPATH_TO_DIRECTORY:\nThe directory whose opened files you want to list",
+    "category": "info"
+  },
+  "How do I list all files opened by a specific user? (Linux & Mac)": {
+    "value": "To list all files opened by a specific user in Linux/Mac:\n+----------------------------+\n|lsof -u {USERNAME | USER_ID}|\n+----------------------------+\n-u:\nTell lsof you want to look at files opened by a user\nUSERNAME:\nThe name of the user that opened the file(s)\nUSER_ID:\nThe UID of the user that opened the file(s)",
+    "category": "info"
+  },
+  "How do I list all files opened by any process? (Linux & Mac)": {
+    "value": "To list all files opened by any process in Linux/Mac:\n+----+\n|lsof|\n+----+",
+    "category": "info"
+  },
+  "How do I list all files opened by any process along with that process' parent? (Linux & Mac)": {
+    "value": "To list all files opened by any process along with that process' parent in Linux/Mac:\n+-------+\n|lsof -R|\n+-------+\n-R:\nTell lsof to include the parent process ID (PPID) in the output",
+    "category": "info"
+  },
+  "How do I list all opened files based on their IP address? (Linux & Mac)": {
+    "value": "To list all files opened based on their IP address in Linux/Mac:\n+---------------+\n|lsof -i [4 | 6]|\n+---------------+\n-i: Tell lsof you want to view all opened files based on IP addresses\n4:\nShow only IPv4 addresses\n6:\nShow only IPv6 addresses",
+    "category": "info"
+  },
+  "How to create a TAR file (Windows, Linux & Mac)": {
+    "value": "To create a TAR file in Windows, Linux or Mac:\n+---------------------------------------------------------------------+\n|tar -cvf {TAR_FILE_NAME}.tar {FILE_1 [FILE_2 ... FILE_N] | DIRECTORY}|\n+---------------------------------------------------------------------+\n-c\n:Create a TAR file\n-v:\nStands for verbose. Tells tar to list out the files it's compressing\n-f:\nTAR_FILE_NAME must follow after this option since it tells tar what you want the\nname of the TAR file being created to be called\nFILE_1:\nThe file you want to compress (mandatory)\nFILE_2 ... FILE_N:\nAdditional files to compress as well (optional).\n\u2022 Each files are separated by a space.\n  \u2022 i.e. FILE_1 FILE_2 FILE_3 ... FILE_N",
+    "category": "info"
+  },
+  "How to display the IP routing table (Windows, Linux & Mac)": {
+    "value": "To display the IP routing table in Windows Linux or Mac:\n+----------+\n|netstat -r|\n+----------+\nOR\n+-----+\n|route|\n+-----+\n\n====\nNOTE\n====\nIn Windows, you must specify \"route PRINT\" for it to work but in Linux and Mac,\nyou just have to specify \"route\"",
+    "category": "info"
+  },
+  "How to find out how much disk space is available or used on mounted file systems (Linux & Mac)": {
+    "value": "To find out how much available or used on mounted file systems in Linux/Mac:\n+--+\n|df|\n+--+",
+    "category": "info"
+  },
+  "How to get a file's hash (Linux & Mac)": {
+    "value": "To get the MD5 of a file:\n+------------------+\n|md5sum {FILE_NAME}|\n+------------------+\n\nTo get the SHA1 of a file:\n+-------------------+\n|sha1sum {FILE_NAME}|\n+-------------------+\n\nTo get the SHA256 of a file:\n+---------------------+\n|sha256sum {FILE_NAME}|\n+---------------------+\n\nFILE_NAME:\nThe name/path of the file you are trying to get the hash of",
+    "category": "info"
+  },
+  "How to get a file's hash (Windows)": {
+    "value": "To get a file's hash in Windows:\n+---------------------------------------------------------------------------------+\n|certutil -hashfile {FILE_NAME} [MD2 | MD4 | MD5 | SHA1 | SHA256 | SHA384| SHA512]|\n+---------------------------------------------------------------------------------+\n-hashfile:\nTell certutil you want to get the hash of a file\nFILE_NAME:\nThe file you want to get the hash of\nMD2 | MD4 | MD5 | SHA1 | SHA256 | SHA384:\nHash algorithms certutil supports (Default: SHA1)",
+    "category": "info"
+  },
+  "How to get the kernel routing cache information (Linux & Mac)": {
+    "value": "To get the kernel routing cache information in Linux/Mac:\n+---------+\n|route -Cn|\n+---------+\n-C:\nDisplay routing cache instead of the default Forwarding Information Base (FIB)\n-n:\nShow numerical addresses",
+    "category": "info"
+  },
+  "How to know what process is using a certain port (Linux & Mac)": {
+    "value": "To see what process is using a certain port in Linux/Mac:\n+--------------------------+\n|ss -apn | grep :{PORT_NUM}|\n+--------------------------+\n-a:\nShow all sockets\n-p:\nShow the process using that socket\nPORT_NUM:\nThe port number to see what process is using that port",
+    "category": "info"
+  },
+  "How to know what process is using a certain port (Windows)": {
+    "value": "To know what process is using a certain port:\n+----------------------------------+\n|netstat -aon | findstr :{PORT_NUM}|\n+----------------------------------+\n-a:\nShow all connections & listening ports\n-o:\nShow the process using that port\n-n:\nDisplay the addresses & port numbers in numerical form\nPORT_NUM:\nThe port number to see what process is using that port",
+    "category": "info"
+  },
+  "How to know when a file was last modified (Linux & Mac)": {
+    "value": "To know when a file was last modified in Linux/Mac:\n+------------------------+\n|stat -c '%y' {FILE_NAME}|\n+------------------------+\n-c '%y':\nTell stat the format you want to display the output (Time of the last data modification in human-readable format)\nOR\n+-------------------+\n|date -r {FILE_NAME}|\n+-------------------+\n-r: Show the last modification time of FILE_NAME\n\nFILE_NAME:\nThe name of the file whose last modification time you want to see",
+    "category": "info"
+  },
+  "How to know when a file was last modified (Windows)": {
+    "value": "To know when a file was last modified in Windows:\n+--------------------+\n|dir /T:W {FILE_NAME}|\n+--------------------+\n/T:W:\nDisplay the last modification time of FILE_NAME\nFILE_NAME:\nThe name of the file whose last modification time you want to see",
+    "category": "info"
+  },
+  "How to know who's logged in & what he/she is doing (Linux & Mac)": {
+    "value": "To know who's currently logged in & what that user is doing in Linux/Mac:\n+------------+\n|w [USERNAME]|\n+------------+\nUSERNAME:\nSpecify the name of a user to see if that particular user is logged in",
+    "category": "info"
+  },
+  "How to list all currently mounted file systems (Linux & Mac)": {
+    "value": "To list all currently mounted file systems in Linux/Mac:\n+-----+\n|mount|\n+-----+",
+    "category": "info"
+  },
+  "How to list all hidden directories (Linux & Mac)": {
+    "value": "To list all hidden directories in Linux/Mac:\n+-------------------------+\n|find / -type d -name \".*\"|\n+-------------------------+\n/:\nStart searching from the root directory\n-type d:\nSpecify that you want to find directories only\n\".*\":\nShow all hidden directories",
+    "category": "info"
+  },
+  "How to list all hidden directories (Windows)": {
+    "value": "To list all hidden directories in Windows:\n+-------------------+\n|dir /a:hd {DRIVE}:\\|\n+-------------------+\n/a:hd:\nList hidden directories only\nDRIVE:\nStart from the root directory",
+    "category": "info"
+  },
+  "How to list all network interfaces (Linux & Mac)": {
+    "value": "To list all network interfaces in Linux/Mac:\n+------------+\n|ip link show|\n+------------+",
+    "category": "info"
+  },
+  "How to list all network interfaces (Windows)": {
+    "value": "To list all network interfaces in Windows:\n+------------------------------+\n|netsh interface show interface|\n+------------------------------+",
+    "category": "info"
+  },
+  "How to mount a file system (Linux & Mac)": {
+    "value": "To mount a file system in Linux/Mac:\n+-------------------------------+\n|mount {FILE_SYSTEM} {DIRECTORY}|\n+-------------------------------+\nFILE_SYSTEM:\nThe file system you want to mount\nDIRECTORY:\nThe directory where you want to mount the file system",
+    "category": "info"
+  },
+  "How to see a system's information (Linux & Mac)": {
+    "value": "To see a system's information in Linux/Mac:\n+--------+\n|uname -a|\n+--------+\n-a:\nPrint all info about the system",
+    "category": "info"
+  },
+  "How to see a system's information (Windows)": {
+    "value": "To see a system's information in Windows:\n+----------+\n|systeminfo|\n+----------+",
+    "category": "info"
+  },
+  "How to see all TCP ports (Linux & Mac)": {
+    "value": "To see all TCP ports in Linux/Mac:\n+-----+\n|ss -t|\n+-----+\n-t:\nShow only TCP sockets",
+    "category": "info"
+  },
+  "How to see all TCP ports (Windows)": {
+    "value": "To see all TCP ports in Windows:\n+---------------+\n|netstat -ap TCP|\n+---------------+\n-a:\nShow all connections & listening ports\n-p TCP:\nShow only TCP ports",
+    "category": "info"
+  },
+  "How to see all UDP ports (Linux & Mac)": {
+    "value": "To see all UDP ports in Linux/Mac:\n+-----+\n|ss -u|\n+-----+\n-u:\nShow only UDP sockets",
+    "category": "info"
+  },
+  "How to see all UDP ports (Windows)": {
+    "value": "To see all UDP ports in Windows:\n+---------------+\n|netstat -ap UDP|\n+---------------+\n-a:\nShow all connections & listening ports\n-p UDP: Show only UDP ports",
+    "category": "info"
+  },
+  "How to see both listening & non-listening sockets (Linux & Mac)": {
+    "value": "To see both listening & non-listening sockets in Linux/Mac:\n+-----+\n|ss -a|\n+-----+\n-a:\nShow all sockets",
+    "category": "info"
+  },
+  "How to see both listening & non-listening sockets (Windows)": {
+    "value": "To see both listening & non-listening sockets in Windows:\n+----------+\n|netstat -a|\n+----------+\n-a:\nShow all connections & listening ports",
+    "category": "info"
+  },
+  "How to see listening TCP ports (Linux & Mac)": {
+    "value": "To see listening TCP ports in Linux/Mac:\n+------+\n|ss -lt|\n+------+\n-l: Show listening sockets\n-t:\nShow TCP sockets",
+    "category": "info"
+  },
+  "How to see listening UDP ports (Linux & Mac)": {
+    "value": "To see listening UDP ports in Linux/Mac:\n+------+\n|ss -lu|\n+------+\n-l: Show listening sockets\n-u:\nShow UDP sockets",
+    "category": "info"
+  },
+  "How to see listening ports only (Linux & Mac)": {
+    "value": "To see listening ports only in Linux/Mac:\n+-----+\n|ss -l|\n+-----+\n-l: Show listening sockets",
+    "category": "info"
+  },
+  "How to see the date & time of the system from the terminal (Linux & Mac)": {
+    "value": "To see the date & time of the system from the terminal in Linux/Mac:\n+----+\n|date|\n+----+",
+    "category": "info"
+  },
+  "How to see the date & time of the system from the terminal (Windows)": {
+    "value": "To see the date of the system from the terminal in Windows:\n+-------+\n|date /T|\n+-------+\n\nTo see the time of the system from the terminal in Windows:\n+-------+\n|time /T|\n+-------+\n\n/T:\nDisplay the date/time of the system without being asked to set a new date/time",
+    "category": "info"
+  },
+  "How to see who last logged in (Linux & Mac)": {
+    "value": "To see who last logged in in Linux/Mac:\n+----+\n|last|\n+----+",
+    "category": "info"
+  },
+  "How to show all active kernel modules (Linux & Mac)": {
+    "value": "To show all active kernel modules in Linux/Mac:\n+-----+\n|lsmod|\n+-----+",
+    "category": "info"
+  },
+  "How to unmount a mounted file system (Linux & Mac)": {
+    "value": "To unmount a mounted file system in Linux/Mac:\n+--------------------------------+\n|umount {FILE_SYSTEM | DIRECTORY}|\n+--------------------------------+\nFILE_SYSTEM:\nThe name of the file system you want to unmount\nDIRECTORY:\nThe name/path of the directory the file system is mounted on",
+    "category": "info"
+  },
+  "List all network interfaces": {
+    "Windows": {
+      "value": "netsh interface show interface"
+    },
+    "Linux": {
+      "value": "ip link show"
+    },
+    "Darwin": {
+      "value": "ip link show"
+    },
+    "category": "command"
+  },
+  "Read up on Chainsaw": {
+    "value": "Chainsaw",
+    "category": "tools"
+  },
+  "Back": {
+    "value": null,
+    "category": "exit"
+  },
+  "Exit": {
+    "value": null,
+    "category": "exit"
+  }
+}
